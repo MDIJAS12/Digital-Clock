@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>Digital Clock</h2>
+    <div class = "clock">
+        <div>
+            <span id = "hour">00</span>
+            <span class = "text">Hours</span>
+        </div>
+        <div>
+            <span id = "minutes">00</span>
+            <span class = "text">Minutes</span>
+        </div>
+        <div>
+            <span id = "second">00</span>
+            <span class = "text">Seconds</span>
+        </div>
+        <div class = "mss">
+            <span id = "milliseconds">00</span>
+            <span class = "text">Milli seconds</span>
+        </div>
+        <div class = "am">
+            <span id = "ampm">AM</span>
+        </div>
+    </div>
+    <script>
+        const hourid = document.getElementById('hour');
+        const minuteid = document.getElementById('minutes');
+        const secondid = document.getElementById('second');
+        const millisecondsid = document.getElementById('milliseconds'); 
+        const ampmid = document.getElementById('ampm');
+
+/**
+ * Updates the clock on the webpage with the current time.
+ * This function retrieves the current hours, minutes, and seconds from the system clock,
+ * formats them to ensure they are displayed with two digits, and determines whether it is AM or PM.
+ * It then updates the HTML elements corresponding to the hour, minute, second, and AM/PM indicator
+ * with the current time.
+ */
+function clock(){
+    // Get current hours, minutes, and seconds
+    let h = new Date().getHours();
+    let m = new Date().getMinutes();
+    let s = new Date().getSeconds();
+    let ms = new Date().getMilliseconds();
+    // Initialize AM/PM indicator; note there's an error with 'getampm', which is not a standard Date method.
+    let ampm = 'AM'; // Default to 'AM'
+
+    // Convert 24-hour clock to 12-hour format and set AM/PM
+    if(h >= 12){
+        if(h > 12) h -= 12;
+        ampm = 'PM';
+    }
+
+    // Add leading zero if necessary to ensure two-digit format
+    h = h < 10 ? "0" + h : h;
+    m = m < 10 ? "0" + m : m;
+    s = s < 10 ? "0" + s : s;
+    ms  = ms <10 ? "0" + ms : ms;
+
+    // Update the HTML elements with the current time
+    hourid.innerHTML = h;
+    minuteid.innerHTML = m;
+    secondid.innerHTML = s;
+    millisecondsid.innerHTML = ms;
+    ampmid.innerHTML = ampm;
+
+    setTimeout(()=>{
+        clock();
+    },1);
+}
+clock();
+        
+    </script>
+</body>
+</html> 

@@ -1,0 +1,60 @@
+body{margin: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    justify-content: center;
+    color:white;
+    background: url("https://cdn.esahubble.org/archives/images/wallpaper2/potw1833a.jpg");
+}
+h2{
+    text-transform: uppercase;
+    letter-spacing: 3vw;
+    font-size: 90px;
+    text-align: center;
+    text-shadow: 7px 7px 10px rgb(255, 255, 255,0.7);
+}
+.clock{
+    display: flex;
+    font-family: sans-serif;
+}
+.clock div{
+    margin: 40px;
+    position: relative;
+}
+.clock span{
+    width: 200px;
+    height: 120px;
+    /* background-color:goldenrod; */
+    /* opacity: 0.8;  */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 100px;
+    text-shadow: 7px 7px 10px rgb(255, 255, 255,0.7);
+
+}
+
+.clock .text{
+    height: 70px;
+    font-size: 40px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+
+}
+.clock #ampm{
+    width: 200px;
+    height: 120px;
+    font-size: 95px;
+}
+/* .am{
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+} */
+
+.mss{
+    word-wrap:normal;
+    text-align: center;
+}
